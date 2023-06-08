@@ -1,0 +1,47 @@
+.grid {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.grid-item {
+  min-width: 200px;
+  // max-width: 200px;
+  // -webkit-box-flex: 1;
+  // -ms-flex: 1 1 250px;
+  // flex: 1 1 250px;
+  flex: 0 1 10%;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  margin-bottom: 1rem;
+  font-size: 16px;
+}
+
+.wrapper {
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.grid-item figure {
+  padding: 0;
+  margin: 0;
+}
+
+.grid-item figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.grid-item figcaption {
+  display: block;
+  padding: .625rem .5rem;
+}

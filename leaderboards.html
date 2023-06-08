@@ -1,0 +1,244 @@
+---
+layout: page
+title: Leaderboards
+background: '/img/bg-trojan.png'
+---
+
+<h2>Leaderboards</h2>
+
+<!-- <label for="dog-names">Choose a dog name:</label>
+<select name="dog-names" id="dog-names">
+    <option value="rigatoni">Rigatoni</option>
+  <option value="dave">Dave</option>
+  <option value="pumpernickel">Pumpernickel</option>
+  <option value="reeses">Reeses</option>
+</select> -->
+
+<!-- <label for="leaderboard-names">Select leaderboard:</label>
+<form name="change">
+<SELECT NAME="options" ONCHANGE="document.getElementById('flexible').src = this.options[this.selectedIndex].value">
+<option value="https://script.google.com/macros/s/AKfycbx_iHF_fQSO9XRNEw2tHum7peeyhw-adgLZTovoo59fwUMVi2Rvzh81xQ2QZVmmJ3N5Ng/exec">Detection</option>
+<option value="https://script.google.com/macros/s/AKfycbw3M0gxIgtmxfdqfMMeilSST_vPQOad22U07nSH-fjTz5QxSfuJtxccMm9ny_Ni31Q0XQ/exec">Final Round</option>
+</SELECT>
+</form> -->
+
+
+
+<select id="dropdown">
+  <option value="default">Select Leaderboard</option>
+  <option value="option2">Detection</option>
+  <option value="option3">Target Label Prediction</option>
+  <option value="option4">Trigger Synthesis</option>
+  <option value="option5">Evasive Trojans</option>
+  <option value="option1">Final Round</option>
+</select>
+
+
+<!-- Final Round -->
+<iframe width=100% id="flexible_final_round" frameborder=0 style="visibility: hidden; max-height: 0;" src="https://script.google.com/macros/s/AKfycbz-5Xu0OlhWCs2U7JrhSExjEFLs2HJt91rCxodudwyariohfvieI232Eu1kfbqR3Y-s/exec"></iframe>
+<script src="https://kierandixon.com/js/iframeResizer.js"></script>
+<script>
+  window.addEventListener(
+    'message',
+    (event) => {
+      if (event.data === 'gasFrame_final_round') {
+        window.gasFrame = event.source;
+        iFrameResize({
+          log: false,
+          checkOrigin: false
+        }, '#flexible_final_round');
+      }
+    },
+    false
+  );
+</script>
+
+<!-- Detection -->
+<iframe width=100% id="flexible_detection" frameborder=0 style="visibility: hidden; max-height: 0;" src="https://script.google.com/macros/s/AKfycbyWxu3vX2HWp_rvUBcJBEqStv8zc5Lm3gVBrDkl4kEtsKNJZJuSkyLjShumEQY1KIGC6g/exec"></iframe>
+<script src="https://kierandixon.com/js/iframeResizer.js"></script>
+<script>
+  window.addEventListener(
+    'message',
+    (event) => {
+      if (event.data === 'gasFrame_detection') {
+        window.gasFrame = event.source;
+        iFrameResize({
+          log: false,
+          checkOrigin: false
+        }, '#flexible_detection');
+      }
+    },
+    false
+  );
+</script>
+
+<!-- Target Label Prediction -->
+<iframe width=100% id="flexible_target_label_prediction" frameborder=0 style="visibility: hidden; max-height: 0;" src="https://script.google.com/macros/s/AKfycbyue4lJhea6pgCCgmK7AtED8rCdwILZzinfeIlxuDUfHK0DXuhpw2tM_VgWSqyOIhDCBA/exec"></iframe>
+<script src="https://kierandixon.com/js/iframeResizer.js"></script>
+<script>
+  window.addEventListener(
+    'message',
+    (event) => {
+      if (event.data === 'gasFrame_target_label_prediction') {
+        window.gasFrame = event.source;
+        iFrameResize({
+          log: false,
+          checkOrigin: false
+        }, '#flexible_target_label_prediction');
+      }
+    },
+    false
+  );
+</script>
+
+<!-- Trigger Synthesis -->
+<iframe width=100% id="flexible_trigger_synthesis" frameborder=0 style="visibility: hidden; max-height: 0;" src="https://script.google.com/macros/s/AKfycbws43Usic64Wox_Dh3r4F7wMBCYeHdyqQUaL4ewfm0rg0pVyWD73becYecMwPbuGf-mVA/exec"></iframe>
+<script src="https://kierandixon.com/js/iframeResizer.js"></script>
+<script>
+  window.addEventListener(
+    'message',
+    (event) => {
+      if (event.data === 'gasFrame_trigger_synthesis') {
+        window.gasFrame = event.source;
+        iFrameResize({
+          log: false,
+          checkOrigin: false
+        }, '#flexible_trigger_synthesis');
+      }
+    },
+    false
+  );
+</script>
+
+
+<!-- Evasive Trojans -->
+<iframe width=100% id="flexible_evasive_trojans" frameborder=0 style="visibility: hidden; max-height: 0;" src="https://script.google.com/macros/s/AKfycbxl5gS996liUf0x2TEBvXYRUt0zGz_u7C0hAg5TZ_qPXIcauRcuIc1sWwAeixm33cCV9w/exec"></iframe>
+<script src="https://kierandixon.com/js/iframeResizer.js"></script>
+<script>
+  window.addEventListener(
+    'message',
+    (event) => {
+      if (event.data === 'gasFrame_evasive_trojans') {
+        window.gasFrame = event.source;
+        iFrameResize({
+          log: false,
+          checkOrigin: false
+        }, '#flexible_evasive_trojans');
+      }
+    },
+    false
+  );
+</script>
+
+
+<script>
+  document.getElementById("dropdown").addEventListener("change", function() {
+  if (this.value == "option1") {
+    document.getElementById("flexible_final_round").style.visibility = "visible";
+    document.getElementById("flexible_final_round").style.maxHeight = "100%";
+    document.getElementById("flexible_detection").style.visibility = "hidden";
+    document.getElementById("flexible_detection").style.maxHeight = "0";
+    document.getElementById("flexible_target_label_prediction").style.visibility = "hidden";
+    document.getElementById("flexible_target_label_prediction").style.maxHeight = "0";
+    document.getElementById("flexible_trigger_synthesis").style.visibility = "hidden";
+    document.getElementById("flexible_trigger_synthesis").style.maxHeight = "0";
+    document.getElementById("flexible_evasive_trojans").style.visibility = "hidden";
+    document.getElementById("flexible_evasive_trojans").style.maxHeight = "0";
+  } else if (this.value == "option2") {
+    document.getElementById("flexible_final_round").style.visibility = "hidden";
+    document.getElementById("flexible_final_round").style.maxHeight = "0";
+    document.getElementById("flexible_detection").style.visibility = "visible";
+    document.getElementById("flexible_detection").style.maxHeight = "100%";
+    document.getElementById("flexible_target_label_prediction").style.visibility = "hidden";
+    document.getElementById("flexible_target_label_prediction").style.maxHeight = "0";
+    document.getElementById("flexible_trigger_synthesis").style.visibility = "hidden";
+    document.getElementById("flexible_trigger_synthesis").style.maxHeight = "0";
+    document.getElementById("flexible_evasive_trojans").style.visibility = "hidden";
+    document.getElementById("flexible_evasive_trojans").style.maxHeight = "0";
+  } else if (this.value == "option3") {
+    document.getElementById("flexible_final_round").style.visibility = "hidden";
+    document.getElementById("flexible_final_round").style.maxHeight = "0";
+    document.getElementById("flexible_detection").style.visibility = "hidden";
+    document.getElementById("flexible_detection").style.maxHeight = "0";
+    document.getElementById("flexible_target_label_prediction").style.visibility = "visible";
+    document.getElementById("flexible_target_label_prediction").style.maxHeight = "100%";
+    document.getElementById("flexible_trigger_synthesis").style.visibility = "hidden";
+    document.getElementById("flexible_trigger_synthesis").style.maxHeight = "0";
+    document.getElementById("flexible_evasive_trojans").style.visibility = "hidden";
+    document.getElementById("flexible_evasive_trojans").style.maxHeight = "0";
+  } else if (this.value == "option4") {
+    document.getElementById("flexible_final_round").style.visibility = "hidden";
+    document.getElementById("flexible_final_round").style.maxHeight = "0";
+    document.getElementById("flexible_detection").style.visibility = "hidden";
+    document.getElementById("flexible_detection").style.maxHeight = "0";
+    document.getElementById("flexible_target_label_prediction").style.visibility = "hidden";
+    document.getElementById("flexible_target_label_prediction").style.maxHeight = "0";
+    document.getElementById("flexible_trigger_synthesis").style.visibility = "visible";
+    document.getElementById("flexible_trigger_synthesis").style.maxHeight = "100%";
+    document.getElementById("flexible_evasive_trojans").style.visibility = "hidden";
+    document.getElementById("flexible_evasive_trojans").style.maxHeight = "0";
+  } else if (this.value == "option5") {
+    document.getElementById("flexible_final_round").style.visibility = "hidden";
+    document.getElementById("flexible_final_round").style.maxHeight = "0";
+    document.getElementById("flexible_detection").style.visibility = "hidden";
+    document.getElementById("flexible_detection").style.maxHeight = "0";
+    document.getElementById("flexible_target_label_prediction").style.visibility = "hidden";
+    document.getElementById("flexible_target_label_prediction").style.maxHeight = "0";
+    document.getElementById("flexible_trigger_synthesis").style.visibility = "hidden";
+    document.getElementById("flexible_trigger_synthesis").style.maxHeight = "0";
+    document.getElementById("flexible_evasive_trojans").style.visibility = "visible";
+    document.getElementById("flexible_evasive_trojans").style.maxHeight = "100%";
+  }
+});
+</script>
+
+<p>Please click the dropdown above to display the final leaderboards. All leaderboard metrics are percentages, and final rankings for prizes are determined by grouping team submissions together. To view the validation phase leaderboards, please see the <a href="start.html">CodaLab pages</a>. The winning teams of each track are shown below (in cases where no team name is given, we show the participant name).</p>
+
+<h2>Winning Teams</h2>
+
+<h3>Primary Round</h3>
+
+<p>Trojan Detection Track</p>
+<ul>
+  <li>&#129351; <b>1st place:</b> Exness</li>
+  <li>&#129352; <b>2nd place:</b> Qatar Computing Research Institute (QCRI)</li>
+  <li>&#129353; <b>3rd place:</b> HRI</li>
+</ul>
+
+<p>Trojan Analysis Track: Target Label Prediction</p>
+<ul>
+  <li>&#129351; <b>1st place:</b> HRI</li>
+  <li>&#129352; <b>2nd place:</b> PurdueRutgers</li>
+  <li>&#129353; <b>3rd place:</b> Exness</li>
+</ul>
+
+<p>Trojan Analysis Track: Trigger Synthesis</p>
+<ul>
+  <li>&#129351; <b>1st place:</b> HRI</li>
+  <li>&#129352; <b>2nd place:</b> PurdueRutgers</li>
+  <li>&#129353; <b>3rd place:</b> Exness</li>
+</ul>
+
+<p>Evasive Trojans Track</p>
+<ul>
+  <li>&#129351; <b>1st place:</b> Task Similarity</li>
+  <li>&#129352; <b>2nd place:</b> NJUST</li>
+  <li>&#129353; <b>3rd place:</b> HRI</li>
+</ul>
+
+<h3>Final Round</h3>
+<ul>
+  <li>&#129351; <b>1st place:</b> IUB and Task Similarity (tied)</li>
+  <li>&#129353; <b>3rd place:</b> Exness</li>
+</ul>
+<p>(In the Final Round, one of the participants in the original top-3 did not wish to be considered for the prizes, so we omit them from the final ordering.)</p>
+
+<p>The winning methods in each track will be described in the <a href="workshop.html">competition workshop</a>.</p>
+
+<h3>Awards</h3>
+<p>&#128190; Most data-efficient</p>
+<ul>
+  <li><b>Detection Track:</b> Qatar Computing Research Institute (QCRI)</li>
+  <li><b>Target Label Prediction Track:</b> HRI</li>
+  <li><b>Trigger Synthesis Track:</b> HRI</li>
+</ul>
