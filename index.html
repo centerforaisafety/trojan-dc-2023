@@ -1,12 +1,203 @@
 ---
 layout: page
-title: The Trojan Detection Challenge (LLM Edition)
-background: '/img/bg-trojan.png'
+title: The Trojan Detection Challenge 2023 (LLM Edition)
+background: '/img/bg-trojan2023.png'
 ---
 
 
-<p>This is the upcoming website of the Trojan Detection Challenge (LLM Edition), a NeurIPS 2023 competition. The competition aims to advance the understanding and development of methods for detecting hidden functionality in large language models (LLMs). The competition features two main tracks: the Trojan Detection Track and the Red Teaming Track. In the Trojan Detection Track, participants will be given large language models containing thousands of trojans and tasked with discovering the triggers for these trojans. In the Red Teaming Track, participants will be challenged to elicit specific undesirable behaviors from a large language model fine-tuned to avoid those behaviors.</p>
+<p>This is the official website of the Trojan Detection Challenge 2023 (LLM Edition), a NeurIPS 2023 competition. The competition aims to advance the understanding and development of methods for detecting hidden functionality in large language models (LLMs). The competition features two main tracks: the Trojan Detection Track and the Red Teaming Track. In the Trojan Detection Track, participants will be given large language models containing hundreds of trojans and tasked with discovering the triggers for these trojans. In the Red Teaming Track, participants will be challenged to elicit specific undesirable behaviors from a large language model fine-tuned to avoid those behaviors.</p>
 
-<div style="text-align: center;">
-  <h2>Coming Soon: July 10</h2>
+<p><b>Prizes:</b> There is a <u>$30,000 prize pool.</u> The first-place teams will also be invited to co-author a publication summarizing the competition results and will be invited to give a short talk at the competition workshop at NeurIPS 2023 (registration provided). Our current planned procedures for distributing the pool are <a href="prizes.html">here</a>.</p>
+
+
+<!-- <details>
+  <summary><b>What are neural trojans?</b></summary>
+  <p>Researchers have shown that adversaries can insert hidden functionality into deep neural networks such that networks behave normally most of the time but abruptly change their behavior when triggered by the adversary. This is known as a neural trojan attack. Neural trojans can be implanted through a variety of attack vectors. One such attack vector is by poisoning the dataset. For example, in the figure below the adversary has surreptitiously poisoned the training set of a classifier so that when a certain <i>trigger</i> is present, the classifier changes its prediction to the <i>target label</i>.</p>
+  <figure>
+    <img src="/img/trojan_figure_with_arrow.png" alt=""  width="900">
+    <figcaption><b>Figure:</b> An example of a data poisoning Trojan attack. When the trigger is inserted into images at test time, the hidden functionality implanted by the adversary reveals itself and the network outputs the target label with high probability. When the trigger is not present, the network behaves normally. (<a href="https://arxiv.org/abs/1708.06733" style="text-decoration: underline;">figure credit</a>)</figcaption>
+  </figure>
+  
+  <p>Many different kinds of Trojan attacks exist, including attacks with nearly invisible triggers that are hard to identify through manual inspection of a training set. However, even though the trigger may be invisible, it may still be fairly easy to detect the presence of a Trojan with purpose-built detectors. This is known as the problem of <i>Trojan detection</i>. A second kind of attack vector is to release Trojaned networks on model sharing libraries, such as Hugging Face or PyTorch Hub, allowing for even greater control over the inserted Trojans. For this competition, we leverage this attack vector to insert Trojans that are designed to be hard to detect.</p>
+  
+  <p>For more information on neural Trojans, please see the lecture materials here: <a href="https://course.mlsafety.org/calendar/#monitoring" style="text-decoration: underline;">https://course.mlsafety.org/calendar/#monitoring</a></p>
+</details>
+
+<details>
+  <summary><b>Why participate?</b></summary>
+  <p>Neural Trojans are an important issue in the security of machine learning systems, and Trojan detection is the first line of defense. Thus, it is important to know whether the attacker or defender has an advantage in Trojan detection. A competition is a good way to figure this out. We expect to learn novel Trojan detection/construction strategies and likely some unanticipated phenomena. Additionally, a highly refined understanding of Trojan detection probably requires being able to understand what's going on inside a network on some level, and this is one of the great questions of our time.</p>
+
+  <p>As AI systems become more capable, the risks posed by hidden functionality may grow substantially. Developing tools and insights for detecting hidden functionality in modern AI systems could therefore lay important groundwork for tackling future risks. In particular, future AIs could potentially engage in forms of deception&#8212not out of malice, but because deception can help agents achieve their goals or receive approval from humans. Once deceptive AI systems obtain sufficient leverage, these systems could take a "treacherous turn" and bypass human control. Neural Trojans are the closest modern analogue to the risk of treacherous turns in future AI systems and thus provide a microcosm for studying treacherous turns <a href="https://arxiv.org/pdf/2206.05862.pdf">source</a>.</p>
+</details> -->
+
+<h2>Overview</h2>
+
+<p>How can we detect hidden functionality in large language models? Participants will help answer this question in two complimentary tracks:</p>
+
+<p>
+  <ol>
+    <li><b>Trojan Detection Track:</b> Given an LLM containing 1000 trojans and a list of target strings for these trojans, identify the corresponding trigger strings that cause the LLM to generate the target strings. For more information, see <a href="tracks.html#trojan-detection" style="text-decoration: underline">here</a>.</li>
+    <li><b>Red Teaming Track:</b> Given an LLM and a list of undesirable behaviors, design an automated method to generate test cases that elicit these behaviors. For more information, see <a href="tracks.html#red-teaming" style="text-decoration: underline;">here</a>.</li>
+  </ol>
+</p>
+
+<p>Each track has a Large Model and Base Model subtrack, corresponding to ~10B and ~1B parameter models, respectively.</p>
+
+<p><b>Compute Credits:</b> To enable broader participation, we are awarding $500 compute credit grants to student teams that would not otherwise be able to participate. For details on how to apply, see <a href="grants.html" style="text-decoration: underline;">here</a>.</p>
+
+<h2>Important Dates</h2>
+<ul>
+  <li><b>July 14:</b> Registration opens on CodaLab</li>
+  <li><b>July 17:</b> The development phase begins</li>
+  <li><b>October 16:</b> Final submissions for the development phase</li>
+  <li><b>October 16:</b> The test phase begins</li>
+  <li><b>October 20:</b> Final submissions for the test phase</li>
+  <li><b>October 30:</b> Winners are announced</li>
+</ul>
+
+<h2 id="rules">Rules</h2>
+<ol>
+  <li><b>Open Format:</b> This is an open competition. All participants are encouraged to share their methods upon conclusion of the competition, and outstanding submissions will be highlighted in a joint publication. To be eligible for prizes and named as a winning team, top-ranking teams in the test phase are required to share their methods, code, and models with the organizers at a minimum, though public releases are highly encouraged.</li>
+  <li><b>Registration:</b> Double registration is not allowed. We expect teams to self-certify that all team members are not part of a different team registered for the competition, and we will actively monitor for violation of this rule. Teams may participate in multiple tracks. Organizers are not allowed to participate in the competition or win prizes.</li>
+  <li><b>Compute Limits:</b> In both tracks, methods developed for the Base Model subtrack must run in at most 5 days on a single 80GB A100 GPUs to generate a submission for the test phase. For Large Model subtracks, methods must be able to run in at most 5 days on 8x 80GB A100 GPUs to generate a submission for the test phase. These limits do not include initial setup during the development phase. This is a soft requirement; we will only check it for the winning teams, and understandable reasons for exceeding the limit by a modest amount are acceptable. We expect that most methods will not require this much compute.</li>
+  <li><b>Allowed Methods (Trojan Detection Track):</b> The use of features that are clearly loopholes is not allowed (e.g., metadata). We may not anticipate all loopholes and we encourage participants to alert us to their existence. Legitimate features that do not constitute loopholes include all features derived from the trained parameters of networks, the target strings, training triggers, and text datasets.</li>
+  <li><b>Allowed Methods (Red Teaming Track):</b> Methods used for generating submitted test cases must satisfy the following requirements. (1) They must be able to generate any desired number of test cases, not just a fixed number of test cases. (2) They must be fully automated. After an initial setup, they should require no human effort to adapt to a new set of behaviors and no human-in-the-loop for generating test cases. (3) They must not use DeBERTaV3 models (to minimize overlap with the automated metrics). (4) They must cause LLMs to generate behaviors mostly from scratch. In particular, getting LLMs to copy-paste whole instances of undesirable behavior provided in the prompt does not count as generating undesirable behavior from scratch. (5) They must not intentionally boost the diversity metric in an artificial manner, e.g., by adding random text to the beginning of a prompt.</li>
+  <li><b>Rule breaking</b> may result in disqualification, and significant rule breaking will result in an ineligibility for prizes.</li>
+</ol>
+<p>These rules are an initial set, and we require participants to consent to a change of rules if there is an urgent need during registration. If a situation should arise that was not anticipated, we will implement a fair solution, ideally using consensus of participants.</p>
+
+<h2>Organizers</h2>
+
+<div class="wrapper">
+  <div class="grid">
+    <div class="grid-item">
+      <a href="https://scholar.google.com/citations?user=fGeEmLQAAAAJ&hl=en">
+        <figure>
+          <img src="/img/people/mantas.jpg" alt="">
+          <figcaption>Mantas Mazeika<br>(UIUC)</figcaption>
+        </figure>
+      </div>
+    </a>
+    <div class="grid-item">
+      <a href="https://andyzoujm.github.io" target="_blank">
+        <figure>
+          <img src="/img/people/andyzou.png" alt="">
+          <figcaption>Andy Zou<br>(CMU)</figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://www.normanmu.com" target="_blank">
+        <figure>
+          <img src="/img/people/norman.jpeg" alt="">
+          <figcaption>Norman Mu<br>(UC Berkeley)</figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://longphan.ai" target="_blank">
+        <figure>
+          <img src="/img/people/long.jpeg" alt="">
+          <figcaption>Long Phan<br>(CAIS)</figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://sites.google.com/west.cmu.edu/zifan-wang/" target="_blank">
+        <figure>
+          <img src="/img/people/zifan.jpeg" alt="">
+          <figcaption>Zifan Wang<br>(CAIS)</figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://www.linkedin.com/in/chun-yu-chow-85b502131/en?trk=people-guest_people_search-card" target="_blank">
+        <figure>
+          <img src="/img/people/chunru.jpg" alt="">
+          <figcaption>Chunru Yu<br>(UIUC)</figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://www.linkedin.com/in/adam-khoja-103" target="_blank">
+        <figure>
+          <img src="/img/people/adam.jpg" alt="">
+          <figcaption>Adam Khoja<br>(UC Berkeley)</figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://www.fqjiang.work" target="_blank">
+        <figure>
+          <img src="/img/people/fengqing.jpg" alt="">
+          <figcaption>Fengqing Jiang<br>(UW)</figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://www.linkedin.com/in/abogara" target="_blank">
+        <figure>
+          <img src="/img/people/aidan.jpeg" alt="">
+          <figcaption>Aidan O'Gara<br>(CAIS)</figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://zhenxianglance.github.io" target="_blank">
+        <figure>
+          <img src="/img/people/zhen_xiang.jpg" alt="">
+          <figcaption>Zhen Xiang<br>(UIUC)</figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://rajabia.github.io/" target="_blank">
+        <figure>
+          <img src="/img/people/rajabi.png" alt="">
+          <figcaption>Arezoo Rajabi<br>(UW)</figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://people.eecs.berkeley.edu/~hendrycks/" target="_blank">
+        <figure>
+          <img src="/img/people/hendrycks.jpeg" alt="">
+          <figcaption>Dan Hendrycks<br>(CAIS)</figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://people.ece.uw.edu/radha/index.html" target="_blank">
+        <figure>
+          <img src="/img/people/poovendran.jpeg" alt="">
+          <figcaption>Radha Poovendran<br>(UW)</figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://aisecure.github.io/" target="_blank">
+        <figure>
+          <img src="/img/people/bli.jpeg" alt="">
+          <figcaption>Bo Li<br>(UIUC)</figcaption>
+        </figure>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="http://luthuli.cs.uiuc.edu/~daf/">
+        <figure>
+          <img src="/img/people/forsyth.png" alt="">
+          <figcaption>David Forsyth<br>(UIUC)</figcaption>
+        </figure>
+      </a>
+    </div>
+  </div>
 </div>
+
+<p>Contact: <a href="mailto:tdc-organizers@googlegroups.com">tdc2023-organizers@googlegroups.com</a></p>
+<p>To receive updates and reminders through email, join the tdc2023-updates google group: <a href="https://groups.google.com/g/tdc2023-updates">https://groups.google.com/g/tdc2023-updates</a>. Updates will also be posted to the website and competition pages.</p>
+<!-- <p>We are kindly sponsored by Open Philanthropy.</p> -->
+
+<!-- <hr>
+
+<p id="citation1" style="margin : 0; padding-top:0;">1: "ABS: Scanning Neural Networks for Back-doors by Artificial Brain Stimulation". Liu et al.</p>
+<p id="citation2" style="margin : 0; padding-top:0;">2: "Planting Undetectable Backdoors in Machine Learning Models". Goldwasser et al.</p> -->

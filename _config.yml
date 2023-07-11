@@ -3,7 +3,7 @@ email:              your-email@example.com
 description:        NeurIPS 2022
 author:             Center for AI Safety
 baseurl:            "/"
-url:                "https://startbootstrap.github.io"
+url:                "https://trojandetection.ai"
 
 sass:
   load_paths:
