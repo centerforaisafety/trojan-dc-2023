@@ -9,6 +9,14 @@ background: '/img/bg-trojan2023.png'
 
 <p><b>Prizes:</b> There is a <u>$30,000 prize pool.</u> The first-place teams will also be invited to co-author a publication summarizing the competition results and will be invited to give a short talk at the competition workshop at NeurIPS 2023 (registration provided). Our current planned procedures for distributing the pool are <a href="prizes.html">here</a>.</p>
 
+<!-- <p>For the TDC 2022 website, see <a href="https://2022.trojandetection.ai">here</a>.</p> -->
+<!-- TODO: Make the background color correct and update the website to fix bugs and improve consistency -->
+
+<h4>News</h4>
+<ul>
+  <li><b>July 17:</b> Registration has opened on Codalab.</li>
+</ul>
+
 
 <!-- <details>
   <summary><b>What are neural trojans?</b></summary>
@@ -41,9 +49,9 @@ background: '/img/bg-trojan2023.png'
   </ol>
 </p>
 
-<p>Each track has a Large Model and Base Model subtrack, corresponding to ~10B and ~1B parameter models, respectively.</p>
+<p>To enable broader participation, each track has a Large Model and Base Model subtrack, corresponding to larger and smaller LLMs.</p>
 
-<p><b>Compute Credits:</b> To enable broader participation, we are awarding $500 compute credit grants to student teams that would not otherwise be able to participate. For details on how to apply, see <a href="grants.html" style="text-decoration: underline;">here</a>.</p>
+<p><b>Compute Credits:</b> We are awarding $500 compute credit grants to student teams that would not otherwise be able to participate. For details on how to apply, see <a href="grants.html" style="text-decoration: underline;">here</a>.</p>
 
 <h2>Important Dates</h2>
 <ul>
@@ -59,8 +67,9 @@ background: '/img/bg-trojan2023.png'
 <ol>
   <li><b>Open Format:</b> This is an open competition. All participants are encouraged to share their methods upon conclusion of the competition, and outstanding submissions will be highlighted in a joint publication. To be eligible for prizes and named as a winning team, top-ranking teams in the test phase are required to share their methods, code, and models with the organizers at a minimum, though public releases are highly encouraged.</li>
   <li><b>Registration:</b> Double registration is not allowed. We expect teams to self-certify that all team members are not part of a different team registered for the competition, and we will actively monitor for violation of this rule. Teams may participate in multiple tracks. Organizers are not allowed to participate in the competition or win prizes.</li>
+  <li><b>Prize Distribution:</b> Monetary prizes will be awarded to teams as specified in the <a href="https://trojandetection.ai/prizes">Prizes page</a> of the competition website.</li>
   <li><b>Compute Limits:</b> In both tracks, methods developed for the Base Model subtrack must run in at most 5 days on a single 80GB A100 GPUs to generate a submission for the test phase. For Large Model subtracks, methods must be able to run in at most 5 days on 8x 80GB A100 GPUs to generate a submission for the test phase. These limits do not include initial setup during the development phase. This is a soft requirement; we will only check it for the winning teams, and understandable reasons for exceeding the limit by a modest amount are acceptable. We expect that most methods will not require this much compute.</li>
-  <li><b>Allowed Methods (Trojan Detection Track):</b> The use of features that are clearly loopholes is not allowed (e.g., metadata). We may not anticipate all loopholes and we encourage participants to alert us to their existence. Legitimate features that do not constitute loopholes include all features derived from the trained parameters of networks, the target strings, training triggers, and text datasets.</li>
+  <li><b>Allowed Methods (Trojan Detection Track):</b> The use of features that are clearly loopholes is not allowed (e.g., metadata). We may not anticipate all loopholes and we encourage participants to alert us to their existence. Legitimate features that do not constitute loopholes include all features derived from the trained parameters of networks, the target strings, training triggers, and text datasets. Similar to the Red Teaming Track, we also do not allow the submission of prompts that are intended to make LLMs copy-paste target strings from the prompt into the generation.</li>
   <li><b>Allowed Methods (Red Teaming Track):</b> Methods used for generating submitted test cases must satisfy the following requirements. (1) They must be able to generate any desired number of test cases, not just a fixed number of test cases. (2) They must be fully automated. After an initial setup, they should require no human effort to adapt to a new set of behaviors and no human-in-the-loop for generating test cases. (3) They must not use DeBERTaV3 models (to minimize overlap with the automated metrics). (4) They must cause LLMs to generate behaviors mostly from scratch. In particular, getting LLMs to copy-paste whole instances of undesirable behavior provided in the prompt does not count as generating undesirable behavior from scratch. (5) They must not intentionally boost the diversity metric in an artificial manner, e.g., by adding random text to the beginning of a prompt.</li>
   <li><b>Rule breaking</b> may result in disqualification, and significant rule breaking will result in an ineligibility for prizes.</li>
 </ol>
@@ -194,8 +203,10 @@ background: '/img/bg-trojan2023.png'
 </div>
 
 <p>Contact: <a href="mailto:tdc-organizers@googlegroups.com">tdc2023-organizers@googlegroups.com</a></p>
+
 <p>To receive updates and reminders through email, join the tdc2023-updates google group: <a href="https://groups.google.com/g/tdc2023-updates">https://groups.google.com/g/tdc2023-updates</a>. Updates will also be posted to the website and competition pages.</p>
-<!-- <p>We are kindly sponsored by Open Philanthropy.</p> -->
+
+<p>We are kindly sponsored by a private funder.</p>
 
 <!-- <hr>
 
