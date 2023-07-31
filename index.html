@@ -5,7 +5,7 @@ background: '/img/bg-trojan2023.png'
 ---
 
 
-<p>This is the official website of the Trojan Detection Challenge 2023 (LLM Edition), a NeurIPS 2023 competition. The competition aims to advance the understanding and development of methods for detecting hidden functionality in large language models (LLMs). The competition features two main tracks: the Trojan Detection Track and the Red Teaming Track. In the Trojan Detection Track, participants will be given large language models containing hundreds of trojans and tasked with discovering the triggers for these trojans. In the Red Teaming Track, participants will be challenged to elicit specific undesirable behaviors from a large language model fine-tuned to avoid those behaviors.</p>
+<p>This is the official website of the Trojan Detection Challenge 2023 (LLM Edition), a NeurIPS 2023 competition. The competition aims to advance the understanding and development of methods for detecting hidden functionality in large language models (LLMs). The competition features two main tracks: the Trojan Detection Track and the Red Teaming Track. In the Trojan Detection Track, participants are given large language models containing hundreds of trojans and tasked with discovering the triggers for these trojans. In the Red Teaming Track, participants are challenged to develop automated red teaming methods that elicit specific undesirable behaviors from a large language model fine-tuned to avoid those behaviors.</p>
 
 <p><b>Prizes:</b> There is a <u>$30,000 prize pool.</u> The first-place teams will also be invited to co-author a publication summarizing the competition results and will be invited to give a short talk at the competition workshop at NeurIPS 2023 (registration provided). Our current planned procedures for distributing the pool are <a href="prizes.html">here</a>.</p>
 
@@ -19,25 +19,18 @@ background: '/img/bg-trojan2023.png'
 
 <p>For the TDC 2022 website, see <a href="https://2022.trojandetection.ai">here</a>.</p>
 
-<!-- <details>
-  <summary><b>What are neural trojans?</b></summary>
-  <p>Researchers have shown that adversaries can insert hidden functionality into deep neural networks such that networks behave normally most of the time but abruptly change their behavior when triggered by the adversary. This is known as a neural trojan attack. Neural trojans can be implanted through a variety of attack vectors. One such attack vector is by poisoning the dataset. For example, in the figure below the adversary has surreptitiously poisoned the training set of a classifier so that when a certain <i>trigger</i> is present, the classifier changes its prediction to the <i>target label</i>.</p>
-  <figure>
-    <img src="/img/trojan_figure_with_arrow.png" alt=""  width="900">
-    <figcaption><b>Figure:</b> An example of a data poisoning Trojan attack. When the trigger is inserted into images at test time, the hidden functionality implanted by the adversary reveals itself and the network outputs the target label with high probability. When the trigger is not present, the network behaves normally. (<a href="https://arxiv.org/abs/1708.06733" style="text-decoration: underline;">figure credit</a>)</figcaption>
-  </figure>
-  
-  <p>Many different kinds of Trojan attacks exist, including attacks with nearly invisible triggers that are hard to identify through manual inspection of a training set. However, even though the trigger may be invisible, it may still be fairly easy to detect the presence of a Trojan with purpose-built detectors. This is known as the problem of <i>Trojan detection</i>. A second kind of attack vector is to release Trojaned networks on model sharing libraries, such as Hugging Face or PyTorch Hub, allowing for even greater control over the inserted Trojans. For this competition, we leverage this attack vector to insert Trojans that are designed to be hard to detect.</p>
-  
-  <p>For more information on neural Trojans, please see the lecture materials here: <a href="https://course.mlsafety.org/calendar/#monitoring" style="text-decoration: underline;">https://course.mlsafety.org/calendar/#monitoring</a></p>
-</details>
-
 <details>
-  <summary><b>Why participate?</b></summary>
-  <p>Neural Trojans are an important issue in the security of machine learning systems, and Trojan detection is the first line of defense. Thus, it is important to know whether the attacker or defender has an advantage in Trojan detection. A competition is a good way to figure this out. We expect to learn novel Trojan detection/construction strategies and likely some unanticipated phenomena. Additionally, a highly refined understanding of Trojan detection probably requires being able to understand what's going on inside a network on some level, and this is one of the great questions of our time.</p>
+<summary><b>What are neural trojan attacks, and how are they related to red teaming?</b></summary>
+<p>The goal of a neural trojan attack is to insert hidden behaviors into a neural network which are only triggered by specific inputs. Neural trojans can be inserted by sabotaging the training data or training pipeline in a manner which is unbeknownst to the model creator. In our competition, we do not consider the feasibility of inserting trojans and start from a model which already contains trojans. In the context of fine-tuning LLMs to avoid undesirable behaviors (e.g. ChatGPT), we can view “jailbreaks” as a naturally-occurring form of neural trojans, and cast the goal of LLM red teaming as detecting these naturally-occurring neural trojans. Thus, we expect methods for both competition tracks may have many similarities.</p>
+</details>
+<!-- small vertical space -->
+<p></p>
+<details>
+<summary><b>Why participate?</b></summary>
+<p>Large language models (LLMs) display a wide range of capabilities. While many of these capabilities are useful, some are undesirable or unsafe. Even when LLMs are fine-tuned to avoid undesirable behaviors, red teaming efforts can uncover “jailbreaks” that bypass safety mechanisms and unlock dangerous hidden functionality. These safety failures can be patched if they are found. However, the process of finding new jailbreaks often relies on manual red teaming by humans, because automated methods are not yet as effective. This process is slow and expensive, which makes it difficult to scale up. To improve the safety of LLMs, we need better methods for automatically uncovering hidden functionality and jailbreaks. By designing stronger trojan detectors and automated red teaming methods, you will directly help advance the robustness and safety of LLMs.</p>
 
-  <p>As AI systems become more capable, the risks posed by hidden functionality may grow substantially. Developing tools and insights for detecting hidden functionality in modern AI systems could therefore lay important groundwork for tackling future risks. In particular, future AIs could potentially engage in forms of deception&#8212not out of malice, but because deception can help agents achieve their goals or receive approval from humans. Once deceptive AI systems obtain sufficient leverage, these systems could take a "treacherous turn" and bypass human control. Neural Trojans are the closest modern analogue to the risk of treacherous turns in future AI systems and thus provide a microcosm for studying treacherous turns <a href="https://arxiv.org/pdf/2206.05862.pdf">source</a>.</p>
-</details> -->
+<p>As AI systems become more capable, the risks posed by hidden functionality may grow substantially. Developing tools and insights for detecting hidden functionality in modern AI systems could therefore lay important groundwork for tackling future risks. In particular, future AIs could potentially engage in forms of deception&#8212not out of malice, but because deception can help agents achieve their goals or receive approval from humans. Once deceptive AI systems obtain sufficient leverage, these systems could take a "treacherous turn" and bypass human control. Neural trojans are the closest modern analogue to the risk of treacherous turns in future AI systems and thus provide a microcosm for studying treacherous turns. For further discussion of how trojan detection relates to severe risks from future AIs <a href="https://arxiv.org/pdf/2206.05862.pdf#page=16">here</a>. For discussion on catastrophic AI risks more broadly, see <a href="https://arxiv.org/pdf/2306.12001.pdf">here</a></p>
+</details>
 
 <h2>Overview</h2>
 
