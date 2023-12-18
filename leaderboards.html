@@ -1,0 +1,208 @@
+---
+layout: page
+title: Leaderboards
+background: '/img/bg-trojan2023.png'
+---
+
+<h2>Leaderboards</h2>
+
+<!-- <label for="dog-names">Choose a dog name:</label>
+<select name="dog-names" id="dog-names">
+    <option value="rigatoni">Rigatoni</option>
+  <option value="dave">Dave</option>
+  <option value="pumpernickel">Pumpernickel</option>
+  <option value="reeses">Reeses</option>
+</select> -->
+
+<!-- <label for="leaderboard-names">Select leaderboard:</label>
+<form name="change">
+<SELECT NAME="options" ONCHANGE="document.getElementById('flexible').src = this.options[this.selectedIndex].value">
+<option value="https://script.google.com/macros/s/AKfycbx_iHF_fQSO9XRNEw2tHum7peeyhw-adgLZTovoo59fwUMVi2Rvzh81xQ2QZVmmJ3N5Ng/exec">Detection</option>
+<option value="https://script.google.com/macros/s/AKfycbw3M0gxIgtmxfdqfMMeilSST_vPQOad22U07nSH-fjTz5QxSfuJtxccMm9ny_Ni31Q0XQ/exec">Final Round</option>
+</SELECT>
+</form> -->
+
+
+
+<select id="dropdown">
+  <option value="default">Select Leaderboard</option>
+  <option value="option1">Trojan Detection Track - Base Model Subtrack</option>
+  <option value="option2">Trojan Detection Track - Large Model Subtrack</option>
+  <option value="option3">Red Teaming Track - Base Model Subtrack</option>
+  <option value="option4">Red Teaming Track - Large Model Subtrack</option>
+</select>
+
+
+<!-- Trojan Base -->
+<iframe width=100% id="flexible_trojan_base" frameborder=0 style="visibility: hidden; max-height: 0;" src="https://script.google.com/macros/s/AKfycbzXvrA3LNpCmFVw5atXJOaEOr2RpJmoYmfdaT5Iv8Cs-ZfMT26MMi8cIgYVvj3ITr5ZWQ/exec"></iframe>
+<script src="https://kierandixon.com/js/iframeResizer.js"></script>
+<script>
+  window.addEventListener(
+    'message',
+    (event) => {
+      if (event.data === 'gasFrame_trojan_base') {
+        window.gasFrame = event.source;
+        iFrameResize({
+          log: false,
+          checkOrigin: false
+        }, '#flexible_trojan_base');
+      }
+    },
+    false
+  );
+</script>
+
+<!-- Trojan Large -->
+<iframe width=100% id="flexible_trojan_large" frameborder=0 style="visibility: hidden; max-height: 0;" src="https://script.google.com/macros/s/AKfycbxUG5DUFHMopNd4WY34r-ZO4DFCAJEsiqrqMLEx6d00JJEa2F81rRG3UPo-Ai2PQSNf/exec"></iframe>
+<script src="https://kierandixon.com/js/iframeResizer.js"></script>
+<script>
+  window.addEventListener(
+    'message',
+    (event) => {
+      if (event.data === 'gasFrame_trojan_large') {
+        window.gasFrame = event.source;
+        iFrameResize({
+          log: false,
+          checkOrigin: false
+        }, '#flexible_trojan_large');
+      }
+    },
+    false
+  );
+</script>
+
+<!-- Red Base -->
+<iframe width=100% id="flexible_red_base" frameborder=0 style="visibility: hidden; max-height: 0;" src="https://script.google.com/macros/s/AKfycbxu_HSuX1U7LRRTwN9X8c1c6rUNuqIfHGrbcAjb06WYzRyG6y5HeqI62R2eofimoIAt/exec"></iframe>
+<script src="https://kierandixon.com/js/iframeResizer.js"></script>
+<script>
+  window.addEventListener(
+    'message',
+    (event) => {
+      if (event.data === 'gasFrame_red_base') {
+        window.gasFrame = event.source;
+        iFrameResize({
+          log: false,
+          checkOrigin: false
+        }, '#flexible_red_base');
+      }
+    },
+    false
+  );
+</script>
+
+
+<!-- Red Large -->
+<iframe width=100% id="flexible_red_large" frameborder=0 style="visibility: hidden; max-height: 0;" src="https://script.google.com/macros/s/AKfycbygPrZLpAcq5UmbuXoGOD8Jt_V9FgMXeMx1U6zO_oeQvp0_KPjF6b5L19lNrgibg4Y/exec"></iframe>
+<script src="https://kierandixon.com/js/iframeResizer.js"></script>
+<script>
+  window.addEventListener(
+    'message',
+    (event) => {
+      if (event.data === 'gasFrame_red_large') {
+        window.gasFrame = event.source;
+        iFrameResize({
+          log: false,
+          checkOrigin: false
+        }, '#flexible_red_large');
+      }
+    },
+    false
+  );
+</script>
+
+
+<script>
+  document.getElementById("dropdown").addEventListener("change", function() {
+  if (this.value == "option1") {
+    document.getElementById("flexible_trojan_base").style.visibility = "visible";
+    document.getElementById("flexible_trojan_base").style.maxHeight = "100%";
+    document.getElementById("flexible_trojan_large").style.visibility = "hidden";
+    document.getElementById("flexible_trojan_large").style.maxHeight = "0";
+    document.getElementById("flexible_red_base").style.visibility = "hidden";
+    document.getElementById("flexible_red_base").style.maxHeight = "0";
+    document.getElementById("flexible_red_large").style.visibility = "hidden";
+    document.getElementById("flexible_red_large").style.maxHeight = "0";
+  } else if (this.value == "option2") {
+    document.getElementById("flexible_trojan_base").style.visibility = "hidden";
+    document.getElementById("flexible_trojan_base").style.maxHeight = "0";
+    document.getElementById("flexible_trojan_large").style.visibility = "visible";
+    document.getElementById("flexible_trojan_large").style.maxHeight = "100%";
+    document.getElementById("flexible_red_base").style.visibility = "hidden";
+    document.getElementById("flexible_red_base").style.maxHeight = "0";
+    document.getElementById("flexible_red_large").style.visibility = "hidden";
+    document.getElementById("flexible_red_large").style.maxHeight = "0";
+  } else if (this.value == "option3") {
+    document.getElementById("flexible_trojan_base").style.visibility = "hidden";
+    document.getElementById("flexible_trojan_base").style.maxHeight = "0";
+    document.getElementById("flexible_trojan_large").style.visibility = "hidden";
+    document.getElementById("flexible_trojan_large").style.maxHeight = "0";
+    document.getElementById("flexible_red_base").style.visibility = "visible";
+    document.getElementById("flexible_red_base").style.maxHeight = "100%";
+    document.getElementById("flexible_red_large").style.visibility = "hidden";
+    document.getElementById("flexible_red_large").style.maxHeight = "0";
+  } else if (this.value == "option4") {
+    document.getElementById("flexible_trojan_base").style.visibility = "hidden";
+    document.getElementById("flexible_trojan_base").style.maxHeight = "0";
+    document.getElementById("flexible_trojan_large").style.visibility = "hidden";
+    document.getElementById("flexible_trojan_large").style.maxHeight = "0";
+    document.getElementById("flexible_red_base").style.visibility = "hidden";
+    document.getElementById("flexible_red_base").style.maxHeight = "0";
+    document.getElementById("flexible_red_large").style.visibility = "visible";
+    document.getElementById("flexible_red_large").style.maxHeight = "100%";
+  }
+});
+</script>
+
+<p>Please click the dropdown above to display the final leaderboards. All leaderboard metrics are percentages, and higher is better. The Combined Score metric determines the rankings in the Trojan Detection Track, and the Combined Score (Manual Evaluation) metric determines the rankings in the Red Teaming Track. To view the validation phase leaderboards, please see the <a href="start.html">CodaLab pages</a>.</p>
+
+<p>Note: The Test Phase leaderboards on the Red Teaming Track CodaLab pages show rankings determined by the automated Combined Score metric. This was used to select the top-ten teams for manual evaluation, which determined final rankings. The official final rankings are shown on this page and are determined by the Combined Score (Manual Evaluation) metric.</p>
+
+<p>The winning participants and teams of each track are shown below (team names are shown in parentheses).</p>
+
+<h2>Winning Teams</h2>
+
+<h3>Main Prizes</h3>
+
+<p>Trojan Detection Track - Base Model Subtrack</p>
+<ul>
+  <li>&#129351; <b>1st place:</b> zygi (&lt|endoftext|&gt)</li>
+  <li>&#129352; <b>2nd place:</b> tianjian10</li>
+  <li>&#129353; <b>3rd place:</b> persistz (RealAI)</li>
+</ul>
+
+<p>Trojan Detection Track - Large Model Subtrack</p>
+<ul>
+  <li>&#129351; <b>1st place:</b> tianjian10</li>
+  <li>&#129352; <b>2nd place:</b> zygi (&lt|endoftext|&gt)</li>
+  <li>&#129353; <b>3rd place:</b> jawadhussein462</li>
+</ul>
+
+<p>Red Teaming Track - Base Model Subtrack</p>
+<ul>
+  <li>&#129351; <b>1st place:</b> tianjian10</li>
+  <li>&#129352; <b>2nd place:</b> BLG</li>
+  <li>&#129353; <b>3rd place:</b> jiaxiaojunqaq (Renaissance)</li>
+</ul>
+
+<p>Red Teaming Track - Large Model Subtrack</p>
+<ul>
+  <li>&#129351; <b>1st place:</b> tianjian10</li>
+  <li>&#129352; <b>2nd place:</b> BLG</li>
+  <li>&#129353; <b>3rd place:</b> yjw1029 (alpac4)</li>
+</ul>
+
+<p>The first-place teams in each track gave talks in the <a href="workshop.html">competition workshop</a> describing their methods. The recording of the workshop with these talks will be available soon.</p>
+
+<h3>Special Awards</h3>
+<p>&#128184; Most Compute-Efficient</p>
+<ul>
+  <li><b>Trojan Detection Track - Large Model Subtrack</b> persistz</li>
+</ul>
+
+<p>&#11035; Best Black-Box Method</p>
+<ul>
+  <li><b>Trojan Detection Track - Base Model Subtrack</b> jawadhussein462</li>
+  <li><b>Trojan Detection Track - Large Model Subtrack</b> jawadhussein462</li>
+  <li><b>Red Teaming Track - Base Model Subtrack</b> bbussmann</li>
+  <li><b>Red Teaming Track - Large Model Subtrack</b> bbussmann</li>
+</ul>
